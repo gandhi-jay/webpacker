@@ -19,8 +19,8 @@ class Webpacker::Compiler
   def compile
     if stale?
       record_compilation_digest
-      run_webpack
-      exit!
+      exit! unless run_webpack
+      true
     else
       true
     end
